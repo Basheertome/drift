@@ -36,10 +36,6 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
-	if ('ontouchstart' in document.documentElement) {
-		$('html').addClass('touch');
-	}
-
 	$('.navigation').click(function(){
 		$('.card').toggleClass('flipped');
 	});
