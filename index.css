@@ -3,3 +3,235 @@ h1,h2,h3 { font-size: 100%; font-weight: normal; }
 ol,ul { list-style: none; }
 img {border: 0;}
 html {min-height: 100%;}
+
+@font-face {
+    font-family: 'karbonlight';
+    src: url('fonts/karbon-light-webfont.eot');
+    src: url('fonts/karbon-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/karbon-light-webfont.woff') format('woff'),
+         url('fonts/karbon-light-webfont.ttf') format('truetype'),
+         url('fonts/karbon-light-webfont.svg#karbonlight') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'karbonregular';
+    src: url('fonts/karbon-regular-webfont.eot');
+    src: url('fonts/karbon-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/karbon-regular-webfont.woff') format('woff'),
+         url('fonts/karbon-regular-webfont.ttf') format('truetype'),
+         url('fonts/karbon-regular-webfont.svg#karbonregular') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'karbonregularitalic';
+    src: url('fonts/karbon-regularitalic-webfont.eot');
+    src: url('fonts/karbon-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/karbon-regularitalic-webfont.woff') format('woff'),
+         url('fonts/karbon-regularitalic-webfont.ttf') format('truetype'),
+         url('fonts/karbon-regularitalic-webfont.svg#karbonregularitalic') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'karbonmedium';
+    src: url('fonts/karbon-medium-webfont.eot');
+    src: url('fonts/karbon-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/karbon-medium-webfont.woff') format('woff'),
+         url('fonts/karbon-medium-webfont.ttf') format('truetype'),
+         url('fonts/karbon-medium-webfont.svg#karbonmedium') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'karbonsemibold';
+    src: url('fonts/karbon-semibold-webfont.eot');
+    src: url('fonts/karbon-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/karbon-semibold-webfont.woff') format('woff'),
+         url('fonts/karbon-semibold-webfont.ttf') format('truetype'),
+         url('fonts/karbon-semibold-webfont.svg#karbonsemibold') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	text-align: center;
+	background: #000;
+	font-family:'karbonregular', Sans-Serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+.stage {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.card {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: .6s;
+	-moz-transition: .6s;
+	transition: .6s;
+}
+
+.flipped {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.navigation {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 25px;
+	height: 25px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.home .navigation:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: #d69d3a;
+  box-shadow: 0 8px 0 0 #d69d3a, 0 16px 0 0 #d69d3a;
+}
+
+.settings .navigation:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% - 1.5px);
+  width: 100%;
+  height: 3px;
+  background: #666;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.settings .navigation:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 1.5px);
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #666;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+h2 {
+	font-family:'karbonlight', Sans-Serif;
+	font-size: 60px;
+}
+
+h3 {
+	font-family:'karbonregularitalic', Sans-Serif;
+	font-size: 30px;
+}
+
+svg {
+	width: 40px;
+	position: absolute;
+	right: 50%;
+	margin: -20px;
+	fill: currentColor;
+}
+
+.container {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.home, .settings {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	border: 0px solid transparent;
+}
+
+.home {
+	z-index: 3;
+}
+
+.wake, .bed {
+	position: relative;
+	display: table;
+	height: 50%;
+	width: 100%;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.wake {
+	color: #d69d3a;
+	background: #ffd769;
+}
+
+.wake svg {
+	top: calc(20px + 25px);
+}
+
+.bed {
+	color: #1466a5;
+	background: #2696eb;
+	box-shadow: 0 1px 0 0 #2696eb;
+}
+
+.bed svg {
+	bottom: calc(20px + 25px);
+}
+
+.settings {
+	background: #2d2d2d;
+	padding-top: 75px;
+	z-index: 2;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.settings h2 {
+	color: #ccc;
+	font-size: 54px;
+	margin-bottom: 20px;
+}
+
+select {
+	color: #fff;
+	background: #222;
+	border: none;
+	border-radius: 0;
+	padding: 15px 30px;
+	line-height: 70px;
+	font-family:'karbonlight', Sans-Serif;
+	font-size: 80px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+select:first-of-type {
+	margin-bottom: 60px;
+}

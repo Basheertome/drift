@@ -4,8 +4,8 @@ var cities = [
 	[["San Francisco", "California"], ["Anchorage", "Alaska"]],
 	[["Denver", "Colorado"], ["San Francisco", "California"]],
 	[["Chicago", "Illinois"], ["Denver", "Colorado"]],
-	[["New York City", "New York"], ["Chicago", "Illinois"]],
-	[["Bridgetown", "Barbados"], ["New York City", "New York"]],
+	[["New York", "New York"], ["Chicago", "Illinois"]],
+	[["Bridgetown", "Barbados"], ["New York", "New York"]],
 	[["Nuuk", "Greenland"], ["São Paulo", "Brazil"]],
 	[["São Paulo", "Brazil"], ["Nuuk", "Greenland"]],
 	["Praia", "Cape Verde"],
@@ -31,14 +31,29 @@ var bed = {time: 0};
 var date = new Date();
 
 $(document).ready(function(){
+
+	$(window).bind('touchmove', function(e) {
+		e.preventDefault();
+	});
+
+	if ('ontouchstart' in document.documentElement) {
+		$('html').addClass('touch');
+	}
+
+	$('.navigation').click(function(){
+		$('.card').toggleClass('flipped');
+	});
+
+	$('.stage').css('perspective', $(this).width()*3);
  
 	date.hours = date.getHours();
 	date.minutes = date.getMinutes();
 	date.offset = date.getTimezoneOffset() / -60;
 	if (date.minutes > 29) {
-		date.hours++;
 		if (date.hours > 22) {
 			date.hours = 0;
+		} else {
+			date.hours++;
 		}
 	}
 
@@ -89,20 +104,24 @@ function writeCity(offset, id) {
 	if (offset > 0 && offset < 9) {
 		// Check for US Daylight Savings Time
 		$.getJSON('https://maps.googleapis.com/maps/api/timezone/json?location=40.7127,-74.0059&key=AIzaSyAeCzmj9L300wDUz6Mepkd8C5h2MvdMkAk&timestamp=' + (date.getTime() / 1000), function(data) {
-			$('#' + id).text(cities[offset][Boolean(data.dstOffset)?1:0][0] + ", " + cities[offset][Boolean(data.dstOffset)?1:0][1]);
+			$('.' + id + ' h2').text(cities[offset][Boolean(data.dstOffset)?1:0][0]);
+			$('.' + id + ' h3').text(cities[offset][Boolean(data.dstOffset)?1:0][1]);
 		});
 	} else if (offset > 9 && offset < 14) {
 		// Check for EU Daylight Savings Time
 		$.getJSON('https://maps.googleapis.com/maps/api/timezone/json?location=51.5072,-0.1275&key=AIzaSyAeCzmj9L300wDUz6Mepkd8C5h2MvdMkAk&timestamp=' + (date.getTime() / 1000), function(data) {
-			$('#' + id).text(cities[offset][Boolean(data.dstOffset)?1:0][0] + ", " + cities[offset][Boolean(data.dstOffset)?1:0][1]);
+			$('.' + id + ' h2').text(cities[offset][Boolean(data.dstOffset)?1:0][0]);
+			$('.' + id + ' h3').text(cities[offset][Boolean(data.dstOffset)?1:0][1]);
 		});
 	} else if (offset > 21) {
 		// Check for New Zealand Daylight Savings Time
 		$.getJSON('https://maps.googleapis.com/maps/api/timezone/json?location=-36.8404,174.7399&key=AIzaSyAeCzmj9L300wDUz6Mepkd8C5h2MvdMkAk&timestamp=' + (date.getTime() / 1000), function(data) {
-			$('#' + id).text(cities[offset][Boolean(data.dstOffset)?1:0][0] + ", " + cities[offset][Boolean(data.dstOffset)?1:0][1]);
+			$('.' + id + ' h2').text(cities[offset][Boolean(data.dstOffset)?1:0][0]);
+			$('.' + id + ' h3').text(cities[offset][Boolean(data.dstOffset)?1:0][1]);
 		});
 	} else {
-		$('#' + id).text(cities[offset][0] + ", " + cities[offset][1]);	
+		$('.' + id + ' h2').text(cities[offset][0]);
+		$('.' + id + ' h3').text(cities[offset][1]);	
 	}
 	
 }
@@ -128,9 +147,11 @@ function writeHere(id) {
 	    		}
 	    	});
 	    	if (country === "United States") {
-	    		$('#' + id).text(city + ", " + state);
+	    		$('.' + id + ' h2').text(city);
+	    		$('.' + id + ' h3').text(state);
 	    	} else {
-	    		$('#' + id).text(city + ", " + country);
+	    		$('.' + id + ' h2').text(city);
+	    		$('.' + id + ' h3').text(country);
 	    	}
 	    });
 	}

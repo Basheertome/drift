@@ -3,84 +3,103 @@
 <head>
 	<meta charset="utf-8" />
 
-	<title>Sleep Drift</title>
-	<meta name="apple-mobile-web-app-title" content="Time Zone">
+	<title>Drift</title>
+	<meta name="apple-mobile-web-app-title" content="Drift">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
 	<meta name="apple-mobile-web-app-capable" content="yes" /> 
 	<meta name="apple-touch-fullscreen" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	<link rel="apple-touch-icon" href="touch.png" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="index.css">
 
 	<script src="js/jquery.js"></script>
-	<script src="js/snap.js"></script>
 	<script src="index.js"></script>
-	<!--<script src="js/stats.js"></script>
-	<script src="http://stats.basheertome.com/?js" type="text/javascript"></script>!-->
+	<script src="js/stats.js"></script>
+	<script src="http://stats.basheertome.com/?js" type="text/javascript"></script>
 </head>
 <body>
-
-	<div id="wake">Loading...</div>
-	<div id="bed">Loading...</div>
-
-	<select name="wakeTime">
-		<option value="0">0</option>
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8" selected="selected">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-		<option value="13">13</option>
-		<option value="14">14</option>
-		<option value="15">15</option>
-		<option value="16">16</option>
-		<option value="17">17</option>
-		<option value="18">18</option>
-		<option value="19">19</option>
-		<option value="20">20</option>
-		<option value="21">21</option>
-		<option value="22">22</option>
-		<option value="23">23</option>
-	</select>
-
-	<select name="bedTime">
-		<option value="0">0</option>
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-		<option value="13">13</option>
-		<option value="14">14</option>
-		<option value="15">15</option>
-		<option value="16">16</option>
-		<option value="17">17</option>
-		<option value="18">18</option>
-		<option value="19">19</option>
-		<option value="20">20</option>
-		<option value="21">21</option>
-		<option value="22">22</option>
-		<option value="23">23</option>
-	</select>
-
+	<div class="stage">
+	<div class="card">
+		<div class="home">
+			<div class="navigation"></div>
+			<div class="wake">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve"><g><path d="M281.2 31.7c0 17.2-14 31.2-31.2 31.2c-17.3 0-31.2-13.9-31.2-31.2S232.7 0.5 250 0.5 C267.2 0.5 281.2 14.4 281.2 31.7z"/><path d="M218.8 468.3c0-17.3 13.9-31.2 31.2-31.2s31.2 13.9 31.2 31.2c0 17.2-13.9 31.2-31.2 31.2 S218.8 485.6 218.8 468.3z"/><path d="M31.7 218.8c17.2 0 31.2 13.9 31.2 31.2c0 17.3-14 31.2-31.2 31.2c-17.3 0-31.2-13.9-31.2-31.2 C0.5 232.7 14.4 218.8 31.7 218.8z"/><path d="M468.3 281.2c-17.1 0-31.1-14-31.1-31.2c0-17.3 14-31.2 31.3-31.2c17.1 0 31.2 13.9 31 31.2 C499.7 267.2 485.6 281.2 468.3 281.2z"/><path d="M250 125.2c-69 0-124.8 55.9-124.8 124.8S181.1 374.8 250 374.8c68.8 0 124.8-55.9 124.8-124.8 S318.9 125.2 250 125.2L250 125.2z"/><path d="M116.1 72c12.2 12.2 12.2 31.9 0 44.1c-12.2 12.2-31.9 12.2-44.1 0S59.9 84.2 72 72 C84.2 59.8 104 59.8 116.1 72z"/><circle cx="94.1" cy="405.9" r="31.2"/><path d="M384 428c-12.2-12.2-12.2-31.9 0-44.1c12.2-12.2 31.9-12.2 44.1 0c12.3 12.2 12.3 31.9 0 44.1 C416 440.2 396.2 440.2 384 428z"/><path d="M428.1 116.1c-12.2 12.2-31.9 12.2-44.1 0c-12.2-12.2-12.2-31.9 0-44.1c12.2-12.2 31.9-12.2 44.1 0 C440.4 84.2 440.4 104 428.1 116.1z"/></g></svg>
+				<div class="container">
+					<h2>Loading...</h2>
+					<h3></h3>
+				</div>
+			</div>
+			<div class="bed">
+				<div class="container">
+					<h2>Loading...</h2>
+					<h3></h3>
+				</div>
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 471.5 500" enable-background="new 0 0 471.5 500" xml:space="preserve"><g><path d="M260.4 400c-89.7 0-162.5-72.7-162.5-162.5c0-19.3 3.4-37.8 9.6-55C44.8 205.1 0 265 0 335.5C0 425.2 72.7 498 162.5 498 c70.4 0 130.4-44.8 152.9-107.5C298.2 396.7 279.7 400 260.4 400z"/><polygon points="312.8,131 335.6,177.2 386.6,184.7 349.7,220.7 358.4,271.5 312.8,247.5 267.1,271.5 275.8,220.7 238.9,184.7 289.9,177.2"/><polygon points="106.7,18.4 108.8,48.3 134.8,63.6 106.9,74.9 100.4,104.2 81.1,81.2 51.2,84.1 67.1,58.6 55.1,31.1 84.2,38.3"/><polygon points="415.4,-3.2 438.1,16.6 467.2,9.1 455.4,36.8 471.5,62.1 441.6,59.5 422.4,82.6 415.7,53.3 387.8,42.3 413.6,26.8"/><polygon points="420.1,340.3 424.9,369.9 452,382.8 425.3,396.5 421.4,426.3 400.1,405.1 370.6,410.7 384.2,383.8 369.8,357.5 399.5,362.1"/></g></svg>
+			</div>
+		</div>
+		<div class="settings">
+			<div class="navigation"></div>
+			<h2>Wake time</h2>
+			<select name="wakeTime">
+				<option value="0">&nbsp;0:00</option>
+				<option value="1">&nbsp;1:00</option>
+				<option value="2">&nbsp;2:00</option>
+				<option value="3">&nbsp;3:00</option>
+				<option value="4">&nbsp;4:00</option>
+				<option value="5">&nbsp;5:00</option>
+				<option value="6">&nbsp;6:00</option>
+				<option value="7">&nbsp;7:00</option>
+				<option value="8" selected="selected">&nbsp;8:00</option>
+				<option value="9">&nbsp;9:00</option>
+				<option value="10">10:00</option>
+				<option value="11">11:00</option>
+				<option value="12">12:00</option>
+				<option value="13">13:00</option>
+				<option value="14">14:00</option>
+				<option value="15">15:00</option>
+				<option value="16">16:00</option>
+				<option value="17">17:00</option>
+				<option value="18">18:00</option>
+				<option value="19">19:00</option>
+				<option value="20">20:00</option>
+				<option value="21">21:00</option>
+				<option value="22">22:00</option>
+				<option value="23">23:00</option>
+			</select>
+			<h2>Bed time</h2>
+			<select name="bedTime">
+				<option value="0">&nbsp;0:00</option>
+				<option value="1">&nbsp;1:00</option>
+				<option value="2">&nbsp;2:00</option>
+				<option value="3">&nbsp;3:00</option>
+				<option value="4">&nbsp;4:00</option>
+				<option value="5">&nbsp;5:00</option>
+				<option value="6">&nbsp;6:00</option>
+				<option value="7">&nbsp;7:00</option>
+				<option value="8">&nbsp;8:00</option>
+				<option value="9">&nbsp;9:00</option>
+				<option value="10">10:00</option>
+				<option value="11">11:00</option>
+				<option value="12">12:00</option>
+				<option value="13">13:00</option>
+				<option value="14">14:00</option>
+				<option value="15">15:00</option>
+				<option value="16">16:00</option>
+				<option value="17">17:00</option>
+				<option value="18">18:00</option>
+				<option value="19">19:00</option>
+				<option value="20">20:00</option>
+				<option value="21">21:00</option>
+				<option value="22">22:00</option>
+				<option value="23">23:00</option>
+			</select>
+		</div>
+	</div>
+	</div>
 </body>
 </html>
