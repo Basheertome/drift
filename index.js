@@ -61,18 +61,23 @@ $(document).ready(function(){
 	updateBed();	
 
 	$('select[name*="wakeTime"]').change(function() {
-		wake.time = parseInt($('select[name*="wakeTime"]').val());
+		localStorage.setItem("waketime", $('select[name*="wakeTime"]').val());
 		updateWake();
 	});
 
 	$('select[name*="bedTime"]').change(function() {
-		bed.time = parseInt($('select[name*="bedTime"]').val());
+		localStorage.setItem("bedtime", $('select[name*="bedTime"]').val());
 		updateBed();
 	});
 
 });
 
 function updateWake() {
+	if (localStorage.getItem("waketime") != null) {
+		var waketime = localStorage.getItem("waketime");
+		$('select[name*="wakeTime"]').val(parseInt(waketime));
+		wake.time = parseInt(waketime);
+	}
 	wake.offset = wrapTime(date.offset + wake.time - date.hours);
 	writeCity(wake.offset, "wake");
 	if (wake.offset == date.offset) {
@@ -81,6 +86,11 @@ function updateWake() {
 }
 
 function updateBed() {
+	if (localStorage.getItem("bedtime") != null) {
+		var bedtime = localStorage.getItem("bedtime");
+		$('select[name*="bedTime"]').val(parseInt(bedtime));
+		bed.time = parseInt(bedtime);
+	}
 	bed.offset = wrapTime(date.offset + bed.time - date.hours);
 	writeCity(bed.offset, "bed");
 	if (bed.offset == date.offset) {
