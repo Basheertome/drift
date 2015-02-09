@@ -32,6 +32,8 @@ var date = new Date();
 
 $(document).ready(function(){
 
+	FastClick.attach(document.body);
+
 	$(window).bind('touchmove', function(e) {
 		e.preventDefault();
 	});

@@ -241,3 +241,9 @@ select {
 select:first-of-type {
 	margin-bottom: 60px;
 }
+
+@media (max-height: 500px) {
+  svg {
+  	opacity: 0;
+  }
+}
